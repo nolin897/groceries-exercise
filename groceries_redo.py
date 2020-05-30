@@ -121,8 +121,12 @@ print("--------------")
 print("THERE ARE " + str(department_count) + " DEPARTMENTS:")
 print("--------------")
 
+unique_departments.sort() #This is a mutating operation that sorts in place.
+
 for d in unique_departments:
-    print(d)
+    print(d.title())
+
+#Now we have to count the number of products that correspond to each department.
 
 # --------------
 # THERE ARE 10 DEPARTMENTS:
