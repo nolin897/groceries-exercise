@@ -1,8 +1,8 @@
 # groceries.py
 
-import operator
-
 #from pprint import pprint
+
+#to comment out lines: “command + shift” / “shift + alt” then click and drag. Another way is - select the lines to be commented and use “command + “/” “. (edited) 
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -27,54 +27,52 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-
-def to_usd(my_price):
-    """
-    Converts a numeric value to usd-formatted string, for printing and display purposes.
-    Param: my_price (int or float) like 4000.444444
-    Example: to_usd(4000.444444)
-    Returns: $4,000.44
-    """
-    return f"${my_price:,.2f}" #> $12,000.71
-
 #print(products)
 # pprint(products)
 
 # TODO: write some Python code here to produce the desired output
 
-#print(type(products))
 products_count = len(products)
+
+print(type(products))
 print("--------------")
 print("THERE ARE " + str(products_count) + " PRODUCTS:")
 print("--------------")
 
-sorted_products = sorted(products, key=operator.itemgetter("name"))
-#{"id":1, 
+#{
+# "id":1, 
 # "name": "Chocolate Sandwich Cookies", 
 # "department": "snacks", 
 # "aisle": "cookies cakes", 
-# "price": 3.50},  
+# "price": 3.50
+# },
 
-for p in sorted_products:
+for p in products:
     #print(p["name"])
-    #print("..." + p["name"] + "($4.99)")
-    price_usd = to_usd(p["price"]) #p["price"] #"($4.25)"
-    print(f" + {p['name']} ({price_usd})")
+    #price_usd = #p["price"]
+    price_usd = " (${0:.2f})".format(p["price"])
+    print(" + " + p["name"] + price_usd)
 
-departments = []
-
-for x in products:
-    if x["department"] not in departments:
-        departments.append(x["department"])
-
-print("--------------")
-print("NUMBER OF DEPARTMENTS:",len(departments))
-print("--------------")
-
-#we're identifying departments
-#if department name is already in our list item we don't want to add it again
-
-departments = sorted(departments)
-
-for dept_name in departments:
-    print(dept_name.title())
+# --------------
+# THERE ARE 20 PRODUCTS:
+# --------------
+#  + All-Seasons Salt ($4.99)
+#  + Chocolate Fudge Layer Cake ($18.50)
+#  + Chocolate Sandwich Cookies ($3.50)
+#  + Cut Russet Potatoes Steam N' Mash ($4.25)
+#  + Dry Nose Oil ($21.99)
+#  + Fresh Scent Dishwasher Cleaner ($4.99)
+#  + Gluten Free Quinoa Three Cheese & Mushroom Blend ($3.99)
+#  + Green Chile Anytime Sauce ($7.99)
+#  + Light Strawberry Blueberry Yogurt ($6.50)
+#  + Mint Chocolate Flavored Syrup ($4.50)
+#  + Overnight Diapers Size 6 ($25.50)
+#  + Peach Mango Juice ($1.99)
+#  + Pizza For One Suprema Frozen Pizza ($12.50)
+#  + Pomegranate Cranberry & Aloe Vera Enrich Drink ($4.25)
+#  + Pure Coconut Water With Orange ($3.50)
+#  + Rendered Duck Fat ($9.99)
+#  + Robust Golden Unsweetened Oolong Tea ($2.49)
+#  + Saline Nasal Mist ($16.00)
+#  + Smart Ones Classic Favorites Mini Rigatoni With Vodka Cream Sauce ($6.99)
+#  + Sparkling Orange Juice & Prickly Pear Beverage ($2.99)
