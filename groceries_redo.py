@@ -99,23 +99,29 @@ departments = []
 
 for p in products:
     #print(p["department"])
-    #departments.append(p["department"])
-    #This will loop through each product, and for each product it will assemble the list of departments. 
+    departments.append(p["department"])
+    
+    #Approach 1: This will loop through each product, and for each product it will assemble the list of departments. 
     # It will append or add the product's department to our list of departments.
-    if p["department"] not in departments:
-        departments.append(p["department"])
-        #By only conditionally appending the department to our departments list 
-        #if that product's department doesn't already exist in the list,
-        #we hope to assemble a unique list of departments.
+    # if p["department"] not in departments:
+    #     departments.append(p["department"])
+            #By only conditionally appending the department to our departments list 
+            #if that product's department doesn't already exist in the list,
+            #we hope to assemble a unique list of departments.
+
+    #Approach 2:
+unique_departments = list(set(departments))
+#get the set of departments and convert it back to a list
 
 
-department_count = len(departments)
+
+department_count = len(unique_departments)
 
 print("--------------")
 print("THERE ARE " + str(department_count) + " DEPARTMENTS:")
 print("--------------")
 
-for d in departments:
+for d in unique_departments:
     print(d)
 
 # --------------
