@@ -1,3 +1,5 @@
+import operator
+
 # groceries.py
 
 #from pprint import pprint
@@ -47,11 +49,19 @@ print("--------------")
 # "price": 3.50
 # },
 
-for p in products:
+#products = sorted(products, key=operator.itemgetter("name"))
+
+def sort_by_name(any_product):
+    return any_product["name"]
+
+sorted_products = sorted(products, key=sort_by_name)
+
+for p in sorted_products:
     #print(p["name"])
     #price_usd = #p["price"]
     price_usd = " (${0:.2f})".format(p["price"])
     print(" + " + p["name"] + price_usd)
+
 
 # --------------
 # THERE ARE 20 PRODUCTS:
