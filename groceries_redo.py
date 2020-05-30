@@ -126,11 +126,15 @@ unique_departments.sort() #This is a mutating operation that sorts in place.
 for d in unique_departments:
     matching_products = [p for p in products if p["department"]== d] #identify with products are matching, e.g. return [team for team in teams if team["city"] == city]
     matching_products_count = len(matching_products)
-    print(d.title() + " (" + str(matching_products_count) + " products)")
+    if matching_products_count > 1:
+        label = "products"
+    else: 
+        label = "product"    
+    print(" + " + d.title() + " (" + str(matching_products_count) + " " + label + ")")
 
 #Now we have to count the number of products that correspond to each department.
 #Use filtering and list comprehension: return (item for each item in our list of items if that item matches some criteria or condition.)
-
+#Finally conditionally pluralize the label "product(s)".
 
 # --------------
 # THERE ARE 10 DEPARTMENTS:
